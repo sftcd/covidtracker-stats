@@ -12,6 +12,6 @@ There is also a [CSV file](ie-stats.csv) that is a slightly cleaned up version o
 produced from those JSON files using this
 [script](ie-stats.sh). 
 
-We have published a short [report](https://down.dsg.cs.tcd.ie/ie-stats.pdf)
+We have published a short [report](https://down.dsg.cs.tcd.ie/tact/ie-stats.pdf)
 describing this.
 
