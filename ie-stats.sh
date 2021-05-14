@@ -55,6 +55,14 @@ do
     # our idea of time, based on when we downloaded JSON 
     run=`basename $file .json | sed -e 's/-.*//'`
     run_nice="${run:0:4}-${run:4:2}-${run:6:2}"
+    # check if json file parses ok - we do have at least
+    # one instance of a truncated file (Dec 19th 2020)
+    donothing=`cat $file | json_pp >/dev/null`
+    if [[ "$?" != "0" ]]
+    then
+        echo "Skipping $file as json_pp doesn't like it" >&2
+        continue
+    fi
     # HSE's idea of time, based on when file generated, not used 
     ga=`cat $file | json_pp | jq .generatedAt | sed -e 's/"//g'`
     # active users - always 13000000 so far
